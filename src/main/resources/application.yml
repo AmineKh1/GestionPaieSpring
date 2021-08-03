@@ -1,0 +1,27 @@
+server:
+  port: 8090
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: ''
+    url: jdbc:mysql://localhost:3306/gestionpaie
+    username: root
+  ## jpa:
+   ## hibernate:
+   ##   ddl-auto: update
+ ##   properties:
+  ##    hibernate:
+   ##     dialect: org.hibernate.dialect.MySQL5Dialect 
+ ##   show-sql: false
+  jpa:
+    database: MYSQL
+    show-sql: false
+    properties:
+      hibernate:
+        session_factory:
+          interceptor: com.amine.gestionpaie.interceptor.Interceptor
+flickr:
+  apiKey: e4b41459b52da1f8e8ddb81446713754
+  apiSecret: 8d5a034f49fecef2
+  appKey: 72157718885539581-8a7658238cb22caa
+  appSecret: 06e93d78573b16d5

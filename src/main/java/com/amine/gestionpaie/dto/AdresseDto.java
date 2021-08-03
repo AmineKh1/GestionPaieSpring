@@ -1,0 +1,40 @@
+package com.amine.gestionpaie.dto;
+
+import com.amine.gestionpaie.model.Adresse;
+import com.amine.gestionpaie.model.anneeConfig.AnneeConfigurable;
+
+import lombok.*;
+
+@Data @Builder
+
+public class AdresseDto {
+	private String adresse1;
+	private String ville;
+	private String codePostale;
+	private String pays;
+	public static AdresseDto fromEntity(Adresse adresse) {
+ 		if(adresse == null) {
+ 			return null;
+ 		}
+ 	
+ 	
+		return AdresseDto.builder()
+ 					.adresse1(adresse.getAdresse1())
+ 					.ville(adresse.getVille())
+ 					.codePostale(adresse.getCodePostale())
+ 					.pays(adresse.getPays())
+ 					.build();	
+}
+	public static Adresse toEntity(AdresseDto adresseDto) {
+		if (adresseDto == null) {
+			return null;
+		}
+		Adresse adresse = new Adresse();
+		adresse.setAdresse1(adresseDto.getAdresse1());
+		adresse.setVille(adresseDto.getVille());
+		adresse.setCodePostale(adresseDto.getCodePostale());
+		adresse.setPays(adresseDto.getPays());
+		return adresse;
+	}
+
+}
